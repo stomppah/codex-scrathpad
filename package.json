@@ -1,0 +1,10 @@
+{
+  "name": "shopify-mtg-card-search-plugin",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "echo 'No build step required for vanilla JS extension'",
+    "check": "node --check extensions/mtg-card-search/assets/mtg-card-search.js"
+  }
+}

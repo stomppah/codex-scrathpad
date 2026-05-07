@@ -1,0 +1,84 @@
+{% comment %}
+  MTG card search block for Shopify product page.
+{% endcomment %}
+
+<div class="mtg-card-search" data-mtg-card-search>
+  <h3 class="mtg-card-search__title">Search Magic: The Gathering cards</h3>
+  <label class="mtg-card-search__label" for="mtg-card-search-input-{{ block.id }}">Card name</label>
+  <div class="mtg-card-search__input-row">
+    <input
+      id="mtg-card-search-input-{{ block.id }}"
+      class="mtg-card-search__input"
+      type="text"
+      placeholder="Type a card name (e.g. Black Lotus)"
+      autocomplete="off"
+      data-mtg-input
+    >
+    <button class="mtg-card-search__button" type="button" data-mtg-button>Search</button>
+  </div>
+
+  <p class="mtg-card-search__status" data-mtg-status aria-live="polite"></p>
+  <div class="mtg-card-search__results" data-mtg-results></div>
+</div>
+
+<style>
+  .mtg-card-search {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 16px;
+  }
+
+  .mtg-card-search__input-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .mtg-card-search__input {
+    min-width: 220px;
+    flex: 1;
+    padding: 10px;
+  }
+
+  .mtg-card-search__button {
+    padding: 10px 14px;
+    cursor: pointer;
+  }
+
+  .mtg-card-search__result {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .mtg-card-search__result img {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  .mtg-card-search__meta dt {
+    font-weight: 600;
+  }
+
+  .mtg-card-search__meta dd {
+    margin: 0 0 8px;
+  }
+
+  @media (max-width: 640px) {
+    .mtg-card-search__result {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script src="{{ 'mtg-card-search.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "MTG card search",
+  "target": "section",
+  "settings": []
+}
+{% endschema %}
